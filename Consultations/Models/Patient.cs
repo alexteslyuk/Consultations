@@ -1,4 +1,6 @@
-﻿namespace Consultations.Models
+﻿using Consultations.DTOs;
+
+namespace Consultations.Models
 {
     public class Patient
     {
@@ -15,5 +17,29 @@
         public double? Height { get; private set; }
 
         public IReadOnlyList<Consultation> Consultations => _consultations;
+
+        public Patient(string surname, string name, string? patronymic, DateTime birthDate, string gender, string snils, double? weight, double? height)
+        {
+            Surname = surname;
+            Name = name;
+            Patronymic = patronymic;
+            BirthDate = birthDate;
+            Gender = gender;
+            SNILS = snils;
+            Weight = weight;
+            Height = height;
+        }
+
+        public void Edit(string surname, string name, string? patronymic, DateTime birthDate, string gender, string snils, double? weight, double? height)
+        {
+            Surname = surname;
+            Name = name;
+            Patronymic = patronymic;
+            BirthDate = birthDate;
+            Gender = gender;
+            SNILS = snils;
+            Weight = weight;
+            Height = height;
+        }
     }
 }

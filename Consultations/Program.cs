@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Consultations;
+using Consultations.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContext>(options =>
                 options.UseNpgsql(builder.Configuration.GetValue<string>("ConnectionString")));
+builder.Services.AddAutoMapper(MapperInit.Init);
 
 var app = builder.Build();
 
