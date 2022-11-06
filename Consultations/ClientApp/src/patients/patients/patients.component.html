@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col">
+    <h1>Список пациентов</h1>
+  </div>
+  <div class="col">
+    <button mat-stroked-button class="float-right mt-2 h4" [routerLink]='["/patients/create"]'>Создание пациента</button>
+  </div>
+</div>
+<mat-spinner [hidden]="patientsLoaded"></mat-spinner>
+<mat-table [hidden]="!patientsLoaded" [dataSource]="patients">
+  <ng-container matColumnDef="surname">
+    <mat-header-cell *matHeaderCellDef>Фамилия</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.surname}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Имя</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="patronymic">
+    <mat-header-cell *matHeaderCellDef>Отчество</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.patronymic}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="birthdate">
+    <mat-header-cell *matHeaderCellDef>Дата рождения</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.birthDate | date}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="gender">
+    <mat-header-cell *matHeaderCellDef>Пол</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.gender}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="snils">
+    <mat-header-cell *matHeaderCellDef>СНИЛС</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.snils}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="weight">
+    <mat-header-cell *matHeaderCellDef>Вес</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="height">
+    <mat-header-cell *matHeaderCellDef>Рост</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.height}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="age">
+    <mat-header-cell *matHeaderCellDef>Возраст</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.age}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="edit">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let element"><button mat-stroked-button [routerLink]='["/patients/edit/" + element.id]'>Редактировать</button></mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="delete">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let element"><button mat-stroked-button (click)="delete(element)">Удалить</button></mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Consultations.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class PatientController : ControllerBase
     {
@@ -41,16 +41,17 @@ namespace Consultations.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Edit([FromBody] int id, PatientDTO newValues)
+        public async Task<ActionResult> Edit(int id, [FromBody] PatientDTO newValues)
         {
             var patient = await _context.Patients.SingleOrDefaultAsync(i => i.Id == id);
             patient.Edit(newValues.Surname, newValues.Name, newValues.Patronymic, newValues.BirthDate, newValues.Gender, newValues.SNILS, newValues.Weight, newValues.Height);
             _context.Entry(patient).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
             return Ok(patient);
         }
 
-        [HttpPost]
-        public async Task<ActionResult> Delete([FromBody] int id)
+        [HttpDelete]
+        public async Task<ActionResult> Delete(int id)
         {
             var patient = await _context.Patients.SingleOrDefaultAsync(i => i.Id == id);
             _context.Patients.Remove(patient);

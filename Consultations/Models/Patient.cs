@@ -18,14 +18,14 @@ namespace Consultations.Models
 
         public IReadOnlyList<Consultation> Consultations => _consultations;
 
-        public Patient(string surname, string name, string? patronymic, DateTime birthDate, string gender, string snils, double? weight, double? height)
+        public Patient(string surname, string name, string? patronymic, DateTime birthDate, string gender, string SNILS, double? weight, double? height)
         {
             Surname = surname;
             Name = name;
             Patronymic = patronymic;
             BirthDate = birthDate;
             Gender = gender;
-            SNILS = snils;
+            this.SNILS = SNILS;
             Weight = weight;
             Height = height;
         }

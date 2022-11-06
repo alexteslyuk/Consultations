@@ -1,0 +1,15 @@
+.mat-column-birthdate, .mat-column-snils {
+  flex: 0 0 100px;
+}
+
+.mat-column-gender, .mat-column-weight, .mat-column-height, .mat-column-age {
+  flex: 0 0 40px;
+}
+
+.mat-column-edit, .mat-column-delete {
+  flex: 0 0 160px;
+}
+
+.mat-column-delete {
+  flex: 0 0 120px;
+}

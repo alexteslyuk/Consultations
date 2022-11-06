@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Consultations.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ConsultationController : ControllerBase
     {
@@ -42,7 +42,7 @@ namespace Consultations.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Edit([FromBody] int id, ConsultationDTO newValues)
+        public async Task<ActionResult> Edit(int id, [FromBody] ConsultationDTO newValues)
         {
             var consultation = await _context.Consultations.SingleOrDefaultAsync(i => i.Id == id);
             consultation.Edit(newValues.Date, newValues.Symptoms);

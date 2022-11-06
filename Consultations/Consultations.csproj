@@ -30,7 +30,23 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\src\app\patients\create-patient\" />
+    <None Remove="ClientApp\src\patients\edit-patient\edit-patient.component.ts" />
+    <None Remove="ClientApp\src\patients\patients.module.ts" />
+    <None Remove="ClientApp\src\patients\patients\patients.component.ts" />
+    <None Remove="ClientApp\src\patients\patient\create-patient.component.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\consultations\create-consultation\" />
+    <Folder Include="ClientApp\src\consultations\edit-consultation\" />
+    <Folder Include="ClientApp\src\patients\patient\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\patients\edit-patient\edit-patient.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\patients\patients.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\patients\create-patient\create-patient.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\patients\patients\patients.component.ts" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

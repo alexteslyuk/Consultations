@@ -1,0 +1,87 @@
+<div class="row">
+  <div class="col">
+    <h1>Редактирование пациента</h1>
+  </div>
+  <div class="col m-2">
+    <button form="form" mat-stroked-button class="large-button float-right h2" type="submit">Сохранить</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-8">
+    <mat-spinner *ngIf="!patientLoaded"></mat-spinner>
+    <form id="form" *ngIf="patientLoaded" [formGroup]="editPatientForm" (ngSubmit)="onSubmit(editPatientForm.value)">
+
+      <mat-form-field class="wide-form-field" appearance="standard">
+        <mat-label for="surname">
+          Фамилия
+        </mat-label>
+        <input matInput required id="surname" formControlName="surname">
+        <div *ngIf="form.surname.touched && form.surname.errors?.required">Обязательное поле!</div>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="wide-form-field" appearance="standard">
+        <mat-label for="name">
+          Имя
+        </mat-label>
+        <input matInput required id="name" formControlName="name">
+        <div *ngIf="form.name.touched && form.name.errors?.required">Обязательное поле!</div>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="wide-form-field" appearance="standard">
+        <mat-label for="patronymic">
+          Отчество
+        </mat-label>
+        <input matInput id="patronymic" formControlName="patronymic">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="wide-form-field" appearance="standard">
+        <mat-label for="birthdate">
+          Дата рождения
+        </mat-label>
+        <input matInput formControlName="birthdate" [owlDateTime]="birthdate" [owlDateTimeTrigger]="birthdate">
+        <owl-date-time [pickerType]="'calendar'" #birthdate></owl-date-time>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="wide-form-field" appearance="standard">
+        <mat-label for="gender">
+          Пол
+        </mat-label>
+        <input matInput required id="gender" formControlName="gender">
+        <div *ngIf="form.gender.touched && form.gender.errors?.required">Обязательное поле!</div>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="wide-form-field" appearance="standard">
+        <mat-label for="snils">
+          СНИЛС
+        </mat-label>
+        <input matInput required id="snils" formControlName="snils">
+        <div *ngIf="form.snils.touched && form.snils.errors?.required">Обязательное поле!</div>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="wide-form-field" appearance="standard">
+        <mat-label for="weight">
+          Вес
+        </mat-label>
+        <input matInput id="weight" formControlName="weight">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="wide-form-field" appearance="standard">
+        <mat-label for="height">
+          Рост
+        </mat-label>
+        <input matInput id="height" formControlName="height">
+      </mat-form-field>
+      <br>
+
+    </form>
+    <mat-spinner [hidden]="patientLoaded"></mat-spinner>
+  </div>
+</div>
