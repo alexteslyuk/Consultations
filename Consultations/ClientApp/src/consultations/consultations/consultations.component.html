@@ -34,11 +34,11 @@
 <mat-table *ngIf="patientLoaded" [dataSource]="patient.consultations">
   <ng-container matColumnDef="startDate">
     <mat-header-cell *matHeaderCellDef>Начало</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.startDate | date}} </mat-cell>
+    <mat-cell *matCellDef="let element"> {{element.startDate | date:'medium'}} </mat-cell>
   </ng-container>
   <ng-container matColumnDef="endDate">
     <mat-header-cell *matHeaderCellDef>Окончание</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.endDate | date}} </mat-cell>
+    <mat-cell *matCellDef="let element"> {{element.endDate | date:'medium'}} </mat-cell>
   </ng-container>
   <ng-container matColumnDef="symptoms">
     <mat-header-cell *matHeaderCellDef>Симптомы</mat-header-cell>

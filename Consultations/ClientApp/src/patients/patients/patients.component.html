@@ -32,13 +32,13 @@
     <mat-header-cell *matHeaderCellDef>СНИЛС</mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.snils}} </mat-cell>
   </ng-container>
-  <ng-container matColumnDef="weight">
-    <mat-header-cell *matHeaderCellDef>Вес</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
-  </ng-container>
   <ng-container matColumnDef="height">
     <mat-header-cell *matHeaderCellDef>Рост</mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.height}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="weight">
+    <mat-header-cell *matHeaderCellDef>Вес</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
   </ng-container>
   <ng-container matColumnDef="age">
     <mat-header-cell *matHeaderCellDef>Возраст</mat-header-cell>

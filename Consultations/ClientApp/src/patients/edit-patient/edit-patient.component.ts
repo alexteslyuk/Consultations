@@ -40,8 +40,8 @@ export class EditPatientComponent {
           name: [result.name, Validators.required],
           patronymic: [result.patronymic],
           birthdate: [result.birthDate],
-          gender: [result.surname, Validators.required],
-          snils: [result.surname, Validators.required],
+          gender: [result.gender, Validators.required],
+          snils: [result.snils, Validators.required],
           weight: [result.weight],
           height: [result.height]
         });

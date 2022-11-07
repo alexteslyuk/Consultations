@@ -8,7 +8,7 @@ import { Component, Inject } from "@angular/core";
 })
 
 export class PatientsComponent {
-  displayedColumns = ['surname', 'name', 'patronymic', 'birthdate', 'gender', 'snils', 'weight', 'height', 'age', 'consultations', 'edit', 'delete' ];
+  displayedColumns = ['surname', 'name', 'patronymic', 'birthdate', 'gender', 'snils', 'height', 'weight', 'age', 'consultations', 'edit', 'delete' ];
   public patients: any;
   patientsLoaded = false;
 

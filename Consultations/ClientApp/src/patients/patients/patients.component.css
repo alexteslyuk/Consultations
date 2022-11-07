@@ -1,4 +1,4 @@
-.mat-column-birthdate, .mat-column-snils {
+.mat-column-birthdate {
   flex: 0 0 100px;
 }
 
@@ -6,7 +6,7 @@
   flex: 0 0 50px;
 }
 
-.mat-column-consultations, .mat-column-delete {
+.mat-column-snils, .mat-column-consultations, .mat-column-delete {
   flex: 0 0 125px;
 }
 
