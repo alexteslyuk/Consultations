@@ -8,7 +8,7 @@ import { Component, Inject } from "@angular/core";
 })
 
 export class PatientsComponent {
-  displayedColumns = ['surname', 'name', 'patronymic', 'birthdate', 'gender', 'snils', 'weight', 'height', 'age', 'edit', 'delete' ];
+  displayedColumns = ['surname', 'name', 'patronymic', 'birthdate', 'gender', 'snils', 'weight', 'height', 'age', 'consultations', 'edit', 'delete' ];
   public patients: any;
   patientsLoaded = false;
 
@@ -23,8 +23,6 @@ export class PatientsComponent {
   }
 
   delete(patient: any) {
-    console.log(this.patients);
-    console.log(patient.id);
     this.patients = this.patients.filter((e: any) => e != patient);
     this.http.delete(this.baseUrl + `api/Patient/Delete?id=${patient.id}`).subscribe();
   }

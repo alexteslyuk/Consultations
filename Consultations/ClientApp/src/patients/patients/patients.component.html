@@ -3,7 +3,7 @@
     <h1>Список пациентов</h1>
   </div>
   <div class="col">
-    <button mat-stroked-button class="float-right mt-2 h4" [routerLink]='["/patients/create"]'>Создание пациента</button>
+    <button mat-stroked-button class="float-right mt-2 h4" [routerLink]='["/patients/create"]'>Добавить</button>
   </div>
 </div>
 <mat-spinner [hidden]="patientsLoaded"></mat-spinner>
@@ -43,6 +43,10 @@
   <ng-container matColumnDef="age">
     <mat-header-cell *matHeaderCellDef>Возраст</mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.age}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="consultations">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let element"><button mat-stroked-button [routerLink]='["/consultations/" + element.id]'>Просмотр</button></mat-cell>
   </ng-container>
   <ng-container matColumnDef="edit">
     <mat-header-cell *matHeaderCellDef></mat-header-cell>

@@ -11,5 +11,6 @@
         public string SNILS { get; set; }
         public double? Weight { get; set; }
         public double? Height { get; set; }
+        public List<ConsultationDTO> Consultations { get; set; }
     }
 }

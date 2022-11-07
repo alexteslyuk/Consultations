@@ -34,7 +34,7 @@ export class EditPatientComponent {
 
     if (id != null) {
       this.id = +id;
-      this.http.get<any>(this.baseUrl + `api/Patient/Get?id=${this.id}`).subscribe(result => {
+      this.http.get<any>(`${this.baseUrl}api/Patient/Get?id=${this.id}`).subscribe(result => {
         this.editPatientForm = formBuilder.group({
           surname: [result.surname, Validators.required],
           name: [result.name, Validators.required],

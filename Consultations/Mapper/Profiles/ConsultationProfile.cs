@@ -8,7 +8,8 @@ namespace Consultations.Mapper.Profiles
     {
         public ConsultationProfile()
         {
-            CreateMap<Consultation, ConsultationDTO>();
+            CreateMap<Consultation, ConsultationDTO>()
+                .ForMember(dst => dst.PatientId, opt => opt.MapFrom(src => src.Patient.Id));
             CreateMap<ConsultationDTO, Consultation>();
         }
     }

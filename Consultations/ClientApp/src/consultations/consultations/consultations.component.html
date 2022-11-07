@@ -1,0 +1,57 @@
+<mat-spinner [hidden]="patientLoaded"></mat-spinner>
+<div *ngIf="patientLoaded">
+  <div class="row">
+    <h1>Данные пациента {{patient.surname}} {{patient.name}} {{patient.patronymic}}</h1>
+  </div>
+  <div class="row">
+    Дата рождения: {{patient.birthDate | date}}
+  </div>
+  <div class="row">
+    Пол: {{patient.gender}}
+  </div>
+  <div class="row">
+    СНИЛС: {{patient.snils}}
+  </div>
+  <div class="row">
+    Рост: {{patient.height}}
+  </div>
+  <div class="row">
+    Вес: {{patient.weight}}
+  </div>
+  <div class="row">
+    Возраст: {{patient.age}}
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <h2>Консультации</h2>
+  </div>
+  <div class="col">
+    <button *ngIf="patientLoaded" mat-stroked-button class="float-right mt-2 h4" [routerLink]='["/consultations/create/" + patient.id]'>Добавить</button>
+  </div>
+</div>
+<mat-spinner [hidden]="patientLoaded"></mat-spinner>
+<mat-table *ngIf="patientLoaded" [dataSource]="patient.consultations">
+  <ng-container matColumnDef="startDate">
+    <mat-header-cell *matHeaderCellDef>Начало</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.startDate | date}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="endDate">
+    <mat-header-cell *matHeaderCellDef>Окончание</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.endDate | date}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="symptoms">
+    <mat-header-cell *matHeaderCellDef>Симптомы</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.symptoms}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="edit">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let element"><button mat-stroked-button [routerLink]='["/consultations/edit/" + element.id]'>Редактировать</button></mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="delete">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let element"><button mat-stroked-button (click)="delete(element)">Удалить</button></mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

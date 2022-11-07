@@ -27,9 +27,15 @@ namespace Consultations.Controllers
         }
 
         [HttpGet]
-        public async Task<PatientDTO> Get(int id)
+        public async Task<PatientDTO> Get(int id, bool withConsultations = false)
         {
-            return _mapper.Map<PatientDTO>(await _context.Patients.SingleOrDefaultAsync(i => i.Id == id));
+            var result = _mapper.Map<PatientDTO>(await _context.Patients.SingleOrDefaultAsync(i => i.Id == id));
+            if (result != null && withConsultations)
+            {
+                var consultations = await _context.Consultations.Where(c => c.Patient.Id == id).ProjectTo<ConsultationDTO>(_mapper.ConfigurationProvider).ToListAsync();
+                result.Consultations = consultations;
+            }
+            return result;
         }
 
         [HttpPost]

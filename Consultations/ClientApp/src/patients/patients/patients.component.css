@@ -3,13 +3,13 @@
 }
 
 .mat-column-gender, .mat-column-weight, .mat-column-height, .mat-column-age {
-  flex: 0 0 40px;
+  flex: 0 0 50px;
 }
 
-.mat-column-edit, .mat-column-delete {
-  flex: 0 0 160px;
+.mat-column-consultations, .mat-column-delete {
+  flex: 0 0 125px;
 }
 
-.mat-column-delete {
-  flex: 0 0 120px;
+.mat-column-edit {
+  flex: 0 0 150px;
 }

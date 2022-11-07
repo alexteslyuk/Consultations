@@ -13,6 +13,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="6.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10">
@@ -30,19 +31,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\consultations\consultations.module.ts" />
+    <None Remove="ClientApp\src\consultations\consultations\consultations.component.ts" />
+    <None Remove="ClientApp\src\consultations\create-consultation\create-consultation.component.ts" />
+    <None Remove="ClientApp\src\consultations\edit-consultation\edit-consultation.component.ts" />
     <None Remove="ClientApp\src\patients\edit-patient\edit-patient.component.ts" />
     <None Remove="ClientApp\src\patients\patients.module.ts" />
     <None Remove="ClientApp\src\patients\patients\patients.component.ts" />
-    <None Remove="ClientApp\src\patients\patient\create-patient.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\src\consultations\create-consultation\" />
-    <Folder Include="ClientApp\src\consultations\edit-consultation\" />
-    <Folder Include="ClientApp\src\patients\patient\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\consultations\consultations.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\consultations\consultations\consultations.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\consultations\create-consultation\create-consultation.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\consultations\edit-consultation\edit-consultation.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\patients\edit-patient\edit-patient.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\patients\patients.module.ts" />
     <TypeScriptCompile Include="ClientApp\src\patients\create-patient\create-patient.component.ts" />

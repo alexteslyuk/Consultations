@@ -3,24 +3,26 @@
     public class Consultation
     {
         public int Id { get; }
-        public DateTime Date { get; private set; }
+        public DateTime StartDate { get; private set; }
+        public DateTime EndDate { get; private set; }
         public string? Symptoms { get; private set; }
-        public Patient Patient { get; private set; }
+        public Patient Patient { get; set; }
 
         private Consultation()
         {
         }
 
-        public Consultation(DateTime date, string? symptoms, Patient patient)
+        public Consultation(DateTime startDate, DateTime endDate, string? symptoms)
         {
-            Date = date;
+            StartDate = startDate;
+            EndDate = endDate;
             Symptoms = symptoms;
-            Patient = patient;
         }
 
-        public void Edit(DateTime date, string? symptoms)
+        public void Edit(DateTime startDate, DateTime endDate, string? symptoms)
         {
-            Date = date;
+            StartDate = startDate;
+            EndDate = endDate;
             Symptoms = symptoms;
         }
     }

@@ -10,7 +10,11 @@ const PROXY_CONFIG = [
       "/api/Patient/Get",
       "/api/Patient/Create",
       "/api/Patient/Edit",
-      "/api/Patient/Delete"
+      "/api/Patient/Delete",
+      "/api/Consultation/Get",
+      "/api/Consultation/Create",
+      "/api/Consultation/Edit",
+      "/api/Consultation/Delete"
    ],
     target: target,
     secure: false,
